@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Portfolio Admin | Semicolon Innovations</title>
+    <meta
+      name="description"
+      content="Local portfolio admin panel for adding and managing Semicolon portfolio projects."
+    >
+    <link rel="stylesheet" href="assets/css/styles.css">
+  </head>
+  <body data-page="portfolio-admin">
+    <div data-site-header></div>
+    <main>
+      <section class="page-hero page-hero--center page-hero--portfolio-admin">
+        <div class="container">
+          <div class="page-hero__stack stack-lg">
+            <p class="eyebrow" data-reveal>
+              <span>Local Control</span>
+              <span>Portfolio Admin Panel</span>
+            </p>
+            <h1 data-reveal style="--delay: 0.08s">
+              Manage Portfolio Projects
+              <span class="text-gradient">Without Touching Core Layout</span>
+            </h1>
+            <p class="lead" data-reveal style="--delay: 0.16s">
+              Add new case studies, feature a primary project, update content, and keep the portfolio page dynamic
+              from one local admin screen.
+            </p>
+            <p data-reveal style="--delay: 0.22s">
+              Everything saves inside this browser using local storage, so the build stays fully static and
+              independent.
+            </p>
+            <div class="hero__actions hero__actions--center" data-reveal style="--delay: 0.28s">
+              <a class="btn" href="portfolio.html">View Portfolio</a>
+              <a class="btn--ghost btn--glass" href="contact.html">Need Custom Work?</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight">
+        <div class="container admin-stats-grid" data-admin-stats></div>
+      </section>
+
+      <section class="section">
+        <div class="container admin-layout">
+          <article class="surface admin-panel admin-panel--form">
+            <div class="admin-panel__head">
+              <p class="eyebrow">Project Form</p>
+              <h2>Add or Update a Portfolio Case</h2>
+              <p>Use this form to publish projects like Telemed Healthcare, property platforms, education products, and more.</p>
+            </div>
+            <form class="admin-form" data-portfolio-form>
+              <input type="hidden" name="projectId">
+              <input type="hidden" name="uploadedImageData">
+              <input type="hidden" name="existingImage">
+              <div class="admin-form-grid">
+                <div class="form-field">
+                  <label for="project-title">Project Title</label>
+                  <input id="project-title" name="title" type="text" placeholder="Telemed Healthcare" required>
+                </div>
+                <div class="form-field">
+                  <label for="project-client">Client / Brand</label>
+                  <input id="project-client" name="client" type="text" placeholder="Telemed">
+                </div>
+                <div class="form-field">
+                  <label for="project-category">Category</label>
+                  <input id="project-category" name="category" type="text" placeholder="Healthcare" required>
+                </div>
+                <div class="form-field">
+                  <label for="project-year">Year</label>
+                  <input id="project-year" name="year" type="text" value="2025" placeholder="2025">
+                </div>
+                <div class="form-field form-field--full">
+                  <label for="project-summary">Short Summary</label>
+                  <textarea id="project-summary" name="summary" placeholder="One clear sentence for the portfolio cards." required></textarea>
+                </div>
+                <div class="form-field form-field--full">
+                  <label for="project-description">Featured Description</label>
+                  <textarea id="project-description" name="description" placeholder="Longer description used in the featured project section." required></textarea>
+                </div>
+                <div class="form-field form-field--full">
+                  <label for="project-tags">Tech / Tags</label>
+                  <input id="project-tags" name="tags" type="text" placeholder="Telemedicine, Appointments, Dashboard, UX">
+                  <p class="field-hint">Separate items with commas.</p>
+                </div>
+                <div class="form-field form-field--full">
+                  <label for="project-outcomes">Project Outcomes</label>
+                  <textarea id="project-outcomes" name="outcomes" placeholder="One result per line"></textarea>
+                  <p class="field-hint">Write each outcome on a new line.</p>
+                </div>
+                <div class="form-field form-field--full">
+                  <label for="project-image">Image URL or Local Path</label>
+                  <input id="project-image" name="image" type="text" placeholder="assets/media/my-project.png or https://...">
+                </div>
+                <div class="form-field form-field--full file-field">
+                  <label for="project-image-upload">Or Upload an Image</label>
+                  <input id="project-image-upload" name="imageUpload" type="file" accept="image/*">
+                </div>
+                <div class="form-field">
+                  <label for="project-cta-label">Button Label</label>
+                  <input id="project-cta-label" name="ctaLabel" type="text" value="Discuss Similar Project" placeholder="Discuss Similar Project">
+                </div>
+                <div class="form-field">
+                  <label for="project-cta-href">Button Link</label>
+                  <input id="project-cta-href" name="ctaHref" type="text" value="contact.html" placeholder="contact.html">
+                </div>
+              </div>
+              <label class="admin-checkbox">
+                <input name="featured" type="checkbox">
+                <span>Make this the featured project on the portfolio page</span>
+              </label>
+              <div class="admin-form__actions">
+                <button class="btn" type="submit">Save Project</button>
+                <button class="btn--ghost btn--glass" type="button" data-admin-clear>Clear Form</button>
+              </div>
+              <p class="form-feedback" data-admin-feedback aria-live="polite"></p>
+            </form>
+          </article>
+
+          <aside class="admin-stack">
+            <article class="surface admin-panel">
+              <div class="admin-panel__head">
+                <p class="eyebrow">Local Storage</p>
+                <h2>Portfolio Controls</h2>
+                <p>Your projects persist in this browser, which keeps the build static and editable without a backend.</p>
+              </div>
+              <div class="admin-toolbar">
+                <button class="btn btn--small" type="button" data-admin-export>Export JSON</button>
+                <button class="btn--ghost btn--glass" type="button" data-admin-reset>Restore Defaults</button>
+              </div>
+            </article>
+            <article class="surface admin-panel">
+              <div class="admin-panel__head">
+                <p class="eyebrow">Live Preview</p>
+                <h2>Project Card Preview</h2>
+              </div>
+              <div data-admin-preview></div>
+            </article>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section section--tight">
+        <div class="container">
+          <div class="portfolio-library__head">
+            <div>
+              <p class="eyebrow">Saved Projects</p>
+              <h2>Current Portfolio Inventory</h2>
+            </div>
+          </div>
+          <div class="admin-project-list" data-admin-project-list></div>
+          <div class="surface empty-state is-hidden" data-admin-empty>
+            <p class="eyebrow">No Projects Yet</p>
+            <h2>Your portfolio is empty.</h2>
+            <p>Add your first project from the form above to populate the public portfolio page.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div data-site-footer></div>
+    <script src="assets/js/site-data.js"></script>
+    <script src="assets/js/portfolio-manager.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

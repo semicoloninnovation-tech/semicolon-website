@@ -2,6 +2,18 @@
   const config = window.SEMICOLON_SITE;
   const body = document.body;
   const currentPage = body.dataset.page || "home";
+  const relatedPages = {
+    jobs: "careers",
+    enrollment: "services",
+    "portfolio-admin": "portfolio"
+  };
+
+  const getCurrentPath = () => window.location.pathname.split("/").pop() || "index.html";
+
+  const getHeaderOffset = () => {
+    const header = document.querySelector(".site-header");
+    return (header?.offsetHeight || 72) + 18;
+  };
 
   const internalHref = (href) =>
     href &&
@@ -17,41 +29,55 @@
     return Boolean(hash) && targetPath === currentPath;
   };
 
+  const updateNavActiveState = () => {
+    const currentPath = getCurrentPath();
+    const currentHash = window.location.hash;
+
+    document.querySelectorAll(".site-nav__link").forEach((link) => {
+      const href = link.dataset.navHref || link.getAttribute("href") || "";
+      const navPage = link.dataset.navPage || "";
+      const [pathPart, hashPart] = href.split("#");
+      const targetPath = pathPart || currentPath;
+      let active = false;
+
+      if (currentPath === "index.html" && currentHash && hashPart) {
+        active = targetPath === currentPath && `#${hashPart}` === currentHash;
+      } else if (href === currentPath || (currentPath === "index.html" && href === "index.html" && !currentHash)) {
+        active = true;
+      } else if (navPage && (navPage === currentPage || relatedPages[currentPage] === navPage)) {
+        active = true;
+      }
+
+      link.classList.toggle("is-active", active);
+    });
+  };
+
   const renderHeader = () => {
     const mount = document.querySelector("[data-site-header]");
     if (!mount || !config) return;
-    const logoSrc = "assets/media/semicolon.png";
+    const logoSrc = config.brand.logo || "assets/media/semicolon.png";
+    const headerLogoSrc = config.brand.headerLogo || logoSrc;
 
     const navLinks = config.nav
-      .map((item) => {
-        const active =
-          item.page === currentPage &&
-          (item.page !== "home" || !window.location.hash || item.href === "index.html");
-
-        return `<a href="${item.href}" class="site-nav__link${active ? " is-active" : ""}">${item.label}</a>`;
-      })
+      .map(
+        (item) =>
+          `<a href="${item.href}" class="site-nav__link" data-nav-href="${item.href}" data-nav-page="${item.page || ""}">${item.label}</a>`
+      )
       .join("");
-
-    const tagline = config.brand.tagline
-      ? `<small>${config.brand.tagline}</small>`
-      : "";
 
     mount.innerHTML = `
       <div class="transition-overlay" aria-hidden="true">
         <div class="transition-overlay__inner">
-          <span class="brand-mark"><img src="${logoSrc}" alt=""></span>
+          <span class="transition-overlay__brand"><img src="${headerLogoSrc}" alt=""></span>
           <span class="transition-overlay__label">${config.brand.name}</span>
         </div>
       </div>
       <header class="site-header">
         <div class="container site-header__inner">
-          <a href="index.html" class="brand" aria-label="${config.brand.name}">
-            <span class="brand-mark"><img src="${logoSrc}" alt=""></span>
-            <span class="brand-copy">
-              <strong>${config.brand.name}</strong>
-              ${tagline}
-            </span>
+          <a href="index.html" class="brand brand--header" aria-label="${config.brand.name}">
+            <span class="brand-mark brand-mark--header"><img src="${headerLogoSrc}" alt=""></span>
           </a>
+          <span class="site-header__divider" aria-hidden="true"></span>
           <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
             <span></span>
             <span></span>
@@ -68,7 +94,7 @@
   const renderFooter = () => {
     const mount = document.querySelector("[data-site-footer]");
     if (!mount || !config) return;
-    const logoSrc = "assets/media/semicolon.png";
+    const logoSrc = config.brand.logo || "assets/media/semicolon.png";
 
     const groups = config.footerGroups
       .map(
@@ -88,12 +114,21 @@
           <div class="footer-intro">
             <a href="index.html" class="brand brand--footer" aria-label="${config.brand.name}">
               <span class="brand-mark"><img src="${logoSrc}" alt=""></span>
-              <span class="brand-copy">
-                <strong>${config.brand.name}</strong>
-              </span>
             </a>
             <p>${config.footerNote || ""}</p>
-            <div class="footer-subscribe">Subscribe Us</div>
+            <form class="footer-subscribe" data-demo-form>
+              <label class="sr-only" for="footer-email">Email</label>
+              <input
+                id="footer-email"
+                name="email"
+                type="email"
+                placeholder="${config.footerSubscribePlaceholder || "Enter Your Email..."}"
+              >
+              <button class="btn btn--small" type="submit">
+                ${config.footerSubscribeLabel || "Subscribe Us"}
+              </button>
+              <p class="form-feedback" aria-live="polite"></p>
+            </form>
           </div>
           <div class="footer-columns">
             ${groups}
@@ -144,7 +179,10 @@
           }
         });
       },
-      { threshold: 0.12 }
+      {
+        threshold: 0.08,
+        rootMargin: "0px 0px -10% 0px"
+      }
     );
 
     items.forEach((item) => revealObserver.observe(item));
@@ -237,33 +275,118 @@
         const target = document.getElementById(targetId);
         if (!target) return;
         event.preventDefault();
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
+        window.history.replaceState(null, "", href);
+        updateNavActiveState();
+        const top = target.getBoundingClientRect().top + window.scrollY - getHeaderOffset();
+        window.scrollTo({
+          top: Math.max(0, top),
+          behavior: "smooth"
+        });
       });
     });
   };
 
   const initPageTransitions = () => {
-    setTimeout(() => body.classList.add("is-ready"), 120);
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const enterDelay = reducedMotion ? 0 : 120;
+    const exitDelay = reducedMotion ? 0 : 560;
+    let isNavigating = false;
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        setTimeout(() => body.classList.add("is-ready"), enterDelay);
+      });
+    });
 
     document.querySelectorAll("a[href]").forEach((link) => {
       link.addEventListener("click", (event) => {
         const href = link.getAttribute("href");
+        if (event.defaultPrevented || event.button !== 0) return;
+        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
         if (!href || !internalHref(href) || href.startsWith("#")) return;
         if (sameDocumentLink(href)) return;
         if (link.target === "_blank" || link.hasAttribute("download")) return;
+        if (isNavigating) {
+          event.preventDefault();
+          return;
+        }
 
         event.preventDefault();
-        body.classList.add("is-exiting");
+        isNavigating = true;
+        body.classList.add("is-transitioning");
+        requestAnimationFrame(() => body.classList.add("is-exiting"));
         setTimeout(() => {
           window.location.href = href;
-        }, 320);
+        }, exitDelay);
       });
+    });
+  };
+
+  const initCursor = () => {
+    if (!window.matchMedia("(pointer: fine)").matches) return;
+
+    const cursor = document.createElement("div");
+    cursor.className = "custom-cursor";
+    cursor.setAttribute("aria-hidden", "true");
+    cursor.innerHTML = `
+      <span class="custom-cursor__halo"></span>
+      <span class="custom-cursor__core"></span>
+    `;
+
+    body.appendChild(cursor);
+    body.classList.add("has-custom-cursor");
+
+    let targetX = window.innerWidth * 0.5;
+    let targetY = window.innerHeight * 0.5;
+    let currentX = targetX;
+    let currentY = targetY;
+
+    const interactiveSelector =
+      'a, button, [role="button"], [data-faq-button], .btn, .btn--ghost, .btn--light, .filter-button';
+    const inputSelector = "input, textarea, select, option, [contenteditable='true']";
+
+    const tick = () => {
+      currentX += (targetX - currentX) * 0.22;
+      currentY += (targetY - currentY) * 0.22;
+      cursor.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
+      window.requestAnimationFrame(tick);
+    };
+
+    const updateTargetState = (target) => {
+      const input = target?.closest?.(inputSelector);
+      const interactive = target?.closest?.(interactiveSelector);
+
+      cursor.classList.toggle("is-hidden", Boolean(input));
+      cursor.classList.toggle("is-active", Boolean(interactive) && !input);
+    };
+
+    window.requestAnimationFrame(tick);
+
+    window.addEventListener(
+      "pointermove",
+      (event) => {
+        targetX = event.clientX;
+        targetY = event.clientY;
+        cursor.classList.add("is-visible");
+        updateTargetState(event.target);
+      },
+      { passive: true }
+    );
+
+    window.addEventListener("pointerdown", () => cursor.classList.add("is-pressed"));
+    window.addEventListener("pointerup", () => cursor.classList.remove("is-pressed"));
+    document.addEventListener("pointerover", (event) => updateTargetState(event.target));
+    window.addEventListener("mouseout", (event) => {
+      if (!event.relatedTarget) cursor.classList.remove("is-visible");
+    });
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) cursor.classList.remove("is-visible");
     });
   };
 
   const initCurrentYear = () => {
     document.querySelectorAll("[data-year]").forEach((node) => {
-      node.textContent = String(new Date().getFullYear());
+      node.textContent = config?.footerYear || "2025";
     });
   };
 
@@ -284,6 +407,7 @@
 
   renderHeader();
   renderFooter();
+  updateNavActiveState();
   initMobileNav();
   initReveal();
   initCounters();
@@ -292,6 +416,8 @@
   initForms();
   initSmoothAnchors();
   initPageTransitions();
+  initCursor();
   initCurrentYear();
   initParallax();
+  window.addEventListener("hashchange", updateNavActiveState);
 })();

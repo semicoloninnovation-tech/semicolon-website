@@ -1,16 +1,21 @@
 window.SEMICOLON_SITE = {
   brand: {
     name: "Semicolon Innovations",
-    tagline: ""
+    tagline: "IT Solutions and Training",
+    logo: "assets/media/live-home/semicolon-logo.png",
+    headerLogo: "assets/media/live-home/semicolon-logo-header-actual.png"
   },
+  footerYear: "2025",
+  footerSubscribePlaceholder: "Enter Your Email....",
+  footerSubscribeLabel: "Subscribe Us",
   nav: [
     { label: "Home", href: "index.html", page: "home" },
     { label: "About", href: "about.html", page: "about" },
-    { label: "Services", href: "index.html#services", page: "home" },
+    { label: "Services", href: "index.html#services" },
     { label: "Portfolio", href: "portfolio.html", page: "portfolio" },
-    { label: "Careers", href: "index.html#career", page: "home" },
+    { label: "Careers", href: "index.html#career" },
     { label: "Contact", href: "contact.html", page: "contact" },
-    { label: "FAQ", href: "index.html#faq", page: "home" }
+    { label: "FAQ", href: "index.html#faq" }
   ],
   footerGroups: [
     {
