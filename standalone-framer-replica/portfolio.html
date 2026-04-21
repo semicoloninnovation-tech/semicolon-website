@@ -8,13 +8,13 @@
       name="description"
       content="Local Semicolon portfolio replica built with editable HTML, CSS, and JavaScript only."
     >
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/styles.css?v=20260421-portfolio-fix">
   </head>
   <body data-page="portfolio">
     <div data-site-header></div>
     <main>
       <section class="page-hero page-hero--center page-hero--portfolio">
-        <div class="container portfolio-stage">
+        <div class="container portfolio-stage portfolio-stage--exact">
           <div class="page-hero__stack stack-lg">
             <p class="eyebrow" data-reveal>
               <span>2025</span>
@@ -33,14 +33,18 @@
               <a class="btn" href="contact.html">Build Your Product</a>
             </div>
           </div>
-          <div class="portfolio-stage__media" data-portfolio-featured data-reveal style="--delay: 0.34s">
-          </div>
         </div>
       </section>
 
-      <section class="section section--portfolio-gap">
-        <div class="container portfolio-collection">
-          <div class="portfolio-void" data-reveal style="--delay: 0.02s"></div>
+      <section class="section section--portfolio-cases">
+        <div class="container portfolio-collection portfolio-collection--exact">
+          <div
+            class="portfolio-grid portfolio-grid--dynamic portfolio-grid--exact"
+            data-portfolio-grid
+            data-reveal
+            style="--delay: 0.04s"
+          >
+          </div>
         </div>
       </section>
 
@@ -194,7 +198,7 @@
     </main>
     <div data-site-footer></div>
     <script src="assets/js/site-data.js"></script>
-    <script src="assets/js/portfolio-manager.js"></script>
+    <script src="assets/js/portfolio-manager.js?v=20260421-portfolio-fix"></script>
     <script src="assets/js/main.js"></script>
   </body>
 </html>

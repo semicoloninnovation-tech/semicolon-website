@@ -1,5 +1,14 @@
 (function () {
-  const STORAGE_KEY = "semicolon.portfolio.projects.v5";
+  const STORAGE_KEY = "semicolon.portfolio.projects.v8";
+
+  const LIVE_PROJECT_IMAGE_MAP = {
+    "telemed-healthcare": "assets/media/portfolio-live-exact/telemed-healthcare.jpg",
+    ccp: "assets/media/portfolio-live-exact/ccp.gif",
+    wellone: "assets/media/portfolio-live-exact/wellone.webp",
+    moca: "assets/media/portfolio-live-exact/moca.png",
+    deltachase: "assets/media/portfolio-live-exact/deltachase.png",
+    "realton-it": "assets/media/portfolio-live-exact/realton-it.png"
+  };
 
   const DEFAULT_PROJECTS = [
     {
@@ -8,20 +17,20 @@
       client: "Telemed Healthcare",
       category: "Software Application",
       year: "2025",
-      summary: "Automated invoice generation from healthcare Excel sheets for hospitals and labs.",
+      summary: "Healthcare software interface built for streamlined patient-facing workflows and digital operations.",
       description:
-        "A utility web application that processes large healthcare Excel files and auto-generates patient-specific invoices and categorized billing reports.",
-      tags: ["Healthcare", "Invoice Automation", "Excel Processing", "Billing Reports"],
+        "A healthcare-focused software experience designed with a clearer digital workflow, approachable UI, and operational ease.",
+      tags: ["Healthcare", "Software", "Operations", "UX"],
       outcomes: [
-        "Parses large Excel files within seconds",
-        "Auto-generates GST-ready invoices and department-wise outputs",
-        "Validates file format, column alignment, and empty-cell issues before conversion"
+        "Clean patient and operator interface structure",
+        "Faster internal workflow clarity",
+        "A polished healthcare-oriented product presentation"
       ],
-      ctaLabel: "Discuss Similar Project",
+      ctaLabel: "Build Your Product",
       ctaHref: "contact.html",
       featured: true,
       tone: "healthcare",
-      image: ""
+      image: "assets/media/portfolio-live-exact/telemed-healthcare.jpg"
     },
     {
       id: "ccp",
@@ -29,38 +38,38 @@
       client: "CCP",
       category: "Software Application",
       year: "2025",
-      summary: "Centralized staff management and ticketing system for internal operations.",
+      summary: "Software application card using the same animated visual direction as the live Semicolon portfolio.",
       description:
-        "An enterprise-grade staff management platform with complaint and ticket raising, multi-level role permissions, approval workflows, and report generation.",
-      tags: ["Ticketing", "Enterprise", "Permissions", "Reports"],
+        "An internal operations and workflow software concept presented with the same live-site portfolio treatment.",
+      tags: ["Software", "Enterprise", "Dashboard", "Systems"],
       outcomes: [
-        "Smooth ticket routing and escalation workflows",
-        "Department-based access with custom role privileges",
-        "Downloadable issue and response-time reports"
+        "Live-style animated media card",
+        "Sharper portfolio presentation for enterprise tooling",
+        "Aligned category, year, and card composition"
       ],
-      ctaLabel: "Build an Internal Tool",
+      ctaLabel: "Build Your Product",
       ctaHref: "contact.html",
-      image: "assets/media/live-portfolio/portfolio-case-c.png",
+      image: "assets/media/portfolio-live-exact/ccp.gif",
       tone: "default"
     },
     {
       id: "wellone",
       title: "WellOne",
       client: "WellOne",
-      category: "Software Application",
+      category: "Web Application",
       year: "2025",
-      summary: "Workflow and task management system for employees, roles, and internal communication.",
+      summary: "Clean web application dashboard layout with a bright operational interface and dense data views.",
       description:
-        "A productivity-focused employee platform for tracking tasks, assigning roles, sending notifications, and improving internal workflow visibility.",
-      tags: ["Workflow", "Employee Management", "Notifications", "Analytics"],
+        "A web application experience presented through a crisp dashboard UI focused on clarity, productivity, and information density.",
+      tags: ["Web App", "Dashboard", "Analytics", "SaaS"],
       outcomes: [
-        "Role-based dashboards across desktop, tablet, and mobile",
-        "Email, push, and in-app task notifications",
-        "Clear analytics for completion, overdue work, and time usage"
+        "Dashboard-first project presentation",
+        "High-legibility interface composition",
+        "Closer alignment with the live site card imagery"
       ],
-      ctaLabel: "Create a Workflow Product",
+      ctaLabel: "Build Your Product",
       ctaHref: "contact.html",
-      image: "assets/media/live-portfolio/portfolio-case-a.png",
+      image: "assets/media/portfolio-live-exact/wellone.webp",
       tone: "default"
     },
     {
@@ -68,19 +77,19 @@
       title: "MOCA",
       client: "MOCA",
       category: "Web Application",
-      year: "2025",
-      summary: "Digital lending platform helping MSMEs access working capital through leading institutions.",
+      year: "2024",
+      summary: "Web application interface with a compact finance-style mobile UI and clean visual rhythm.",
       description:
-        "A FinTech solution that supports quick and reliable credit access for MSMEs with responsive flows, SEO-focused structure, and faster eligibility checks.",
-      tags: ["MSME Lending", "FinTech", "Working Capital", "SEO"],
+        "A web application presentation balancing structured interface design, whitespace, and modern app-screen composition.",
+      tags: ["Web App", "Interface Design", "Finance", "UX"],
       outcomes: [
-        "Real-time application processing and approval flow",
-        "Optimized APIs for faster eligibility checks",
-        "Improved communication and deployment for smoother launches"
+        "Refined product-screen framing",
+        "Closer parity with the live site imagery",
+        "Consistent portfolio card treatment"
       ],
-      ctaLabel: "Launch a Lending Platform",
+      ctaLabel: "Build Your Product",
       ctaHref: "contact.html",
-      image: "assets/media/live-portfolio/portfolio-case-b.png",
+      image: "assets/media/portfolio-live-exact/moca.png",
       tone: "fintech"
     },
     {
@@ -88,19 +97,19 @@
       title: "Deltachase",
       client: "Deltachase",
       category: "Web Application",
-      year: "2025",
-      summary: "Quick and flexible short-term loans platform built for a streamlined digital borrowing flow.",
+      year: "2024",
+      summary: "Web application card with the same soft white UI capture used on the live Semicolon portfolio.",
       description:
-        "A loan facilitation platform offering flexible short-term loans from trusted NBFCs and banks with seamless lender integration and financial data accuracy.",
-      tags: ["FinTech", "Loans", "NBFC", "Risk Management"],
+        "A web application showcase built around a light, minimal interface presentation and the same live-site composition.",
+      tags: ["Web App", "FinTech", "Light UI", "Product"],
       outcomes: [
-        "Instant eligibility checks through optimized backend logic",
-        "Built-in KYC, PAN, and Aadhaar validation APIs",
-        "Minimal load times using dynamic content caching"
+        "Faithful live-site project image usage",
+        "Balanced card composition within the 2-column grid",
+        "Matching year and category treatment"
       ],
-      ctaLabel: "Build a FinTech Product",
+      ctaLabel: "Build Your Product",
       ctaHref: "contact.html",
-      image: "assets/media/live-portfolio/portfolio-case-c.png",
+      image: "assets/media/portfolio-live-exact/deltachase.png",
       tone: "fintech"
     },
     {
@@ -109,18 +118,18 @@
       client: "Realton IT",
       category: "Software Application",
       year: "2025",
-      summary: "Robust B2B eCommerce software for IT hardware distribution and inventory control.",
+      summary: "Software application showcase with the same warm yellow-accented dashboard image from the live page.",
       description:
-        "A custom B2B commerce system designed to manage IT peripherals, supplier coordination, pricing models, and real-time inventory across customer groups.",
-      tags: ["B2B Commerce", "Inventory", "Vendors", "Invoicing"],
+        "A software application presentation centered on management dashboards, structured data, and operational clarity.",
+      tags: ["Software", "Dashboard", "Management", "Operations"],
       outcomes: [
-        "Thousands of product SKUs and pricing rules handled cleanly",
-        "Real-time inventory sync across brands and vendors",
-        "Order tracking and GST-compliant PDFs automated"
+        "Distinct dashboard-style visual treatment",
+        "Exact live project ordering in the grid",
+        "Consistent footer bar and year chip styling"
       ],
-      ctaLabel: "Start an eCommerce Build",
+      ctaLabel: "Build Your Product",
       ctaHref: "contact.html",
-      image: "assets/media/live-portfolio/portfolio-case-c.png",
+      image: "assets/media/portfolio-live-exact/realton-it.png",
       tone: "commerce"
     }
   ];
@@ -192,12 +201,18 @@
 
   function normalizeProject(project, index) {
     const title = String(project?.title || project?.name || `Project ${index + 1}`).trim();
+    const normalizedId =
+      slugify(project?.id || title || `project-${index + 1}`) || `project-${index + 1}`;
     const category = String(project?.category || "Digital Product").trim();
     const tags = splitList(project?.tags || project?.stack || "", /,|\n/).slice(0, 6);
     const outcomes = splitList(project?.outcomes || project?.highlights || "", /\n|,/).slice(0, 4);
+    const image =
+      String(project?.image || "").trim() ||
+      LIVE_PROJECT_IMAGE_MAP[normalizedId] ||
+      LIVE_PROJECT_IMAGE_MAP[slugify(title)];
 
     return {
-      id: slugify(project?.id || title || `project-${index + 1}`) || `project-${index + 1}`,
+      id: normalizedId,
       title,
       client: String(project?.client || title).trim(),
       category,
@@ -214,7 +229,7 @@
       outcomes: outcomes.length ? outcomes : ["Built to support a cleaner and more effective delivery flow"],
       ctaLabel: String(project?.ctaLabel || "Discuss Similar Project").trim(),
       ctaHref: sanitizeHref(project?.ctaHref),
-      image: String(project?.image || "").trim(),
+      image,
       featured: Boolean(project?.featured),
       tone: getTone(project?.tone || category),
       updatedAt: String(project?.updatedAt || new Date().toISOString())
@@ -357,15 +372,73 @@
     `;
   }
 
+  function renderExactProjectCard(project, index) {
+    const chip = escapeHtml(project.category || "Digital Product");
+    const title = escapeHtml(project.title);
+    const year = escapeHtml(project.year || "2025");
+    const categoryKey = escapeHtml(project.categoryKey || "digital-product");
+    const delay = `${Math.min(index * 0.04, 0.24).toFixed(2)}s`;
+
+    if (project.image) {
+      return `
+        <article class="portfolio-card-exact" data-category="${categoryKey}" data-reveal style="--delay: ${delay}">
+          <div class="portfolio-card-exact__shell">
+            <div class="portfolio-card-exact__inner">
+              <div class="portfolio-card-exact__surface">
+                <img class="portfolio-card-exact__image" src="${escapeHtml(project.image)}" alt="${title} preview">
+                <div class="portfolio-card-exact__chip">${chip}</div>
+                <div class="portfolio-card-exact__footer">
+                  <strong class="portfolio-card-exact__title">${title}</strong>
+                  <span class="portfolio-card-exact__year">${year}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    return `
+      <article class="portfolio-card-exact" data-category="${categoryKey}" data-reveal style="--delay: ${delay}">
+        <div class="portfolio-card-exact__shell">
+          <div class="portfolio-card-exact__inner">
+            <div class="portfolio-card-exact__surface portfolio-card-exact__surface--fallback">
+              <div class="portfolio-card-exact__placeholder">${escapeHtml(getInitials(project.title) || "SP")}</div>
+              <div class="portfolio-card-exact__chip">${chip}</div>
+              <div class="portfolio-card-exact__footer">
+                <strong class="portfolio-card-exact__title">${title}</strong>
+                <span class="portfolio-card-exact__year">${year}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    `;
+  }
+
   function renderProjectGrid(projects) {
     const grid = document.querySelector("[data-portfolio-grid]");
     const empty = document.querySelector("[data-portfolio-empty]");
     if (!grid) return;
 
-    const hasFeaturedShowcase = Boolean(document.querySelector("[data-portfolio-featured]"));
-    const visibleProjects = hasFeaturedShowcase ? projects.filter((project) => !project.featured) : projects;
+    const displayOrder = [
+      "telemed-healthcare",
+      "ccp",
+      "wellone",
+      "moca",
+      "deltachase",
+      "realton-it"
+    ];
 
-    if (!visibleProjects.length) {
+    const orderedProjects = [...projects].sort((left, right) => {
+      const leftIndex = displayOrder.indexOf(left.id);
+      const rightIndex = displayOrder.indexOf(right.id);
+      const safeLeft = leftIndex === -1 ? Number.MAX_SAFE_INTEGER : leftIndex;
+      const safeRight = rightIndex === -1 ? Number.MAX_SAFE_INTEGER : rightIndex;
+      return safeLeft - safeRight;
+    });
+
+    if (!orderedProjects.length) {
       grid.innerHTML = "";
       if (empty) empty.classList.remove("is-hidden");
       return;
@@ -373,17 +446,7 @@
 
     if (empty) empty.classList.add("is-hidden");
 
-    grid.innerHTML = visibleProjects
-      .map(
-        (project) => `
-          <article class="portfolio-case-tile" data-category="${escapeHtml(project.categoryKey)}">
-            <div class="surface portfolio-case-tile__shell">
-              ${renderProjectShowcaseCard(project, true)}
-            </div>
-          </article>
-        `
-      )
-      .join("");
+    grid.innerHTML = orderedProjects.map((project, index) => renderExactProjectCard(project, index)).join("");
   }
 
   function renderFilters(projects, activeFilter) {

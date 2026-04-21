@@ -26,54 +26,128 @@
             </h1>
             <p class="lead" data-reveal style="--delay: 0.16s">
               Whether you're curious about our services, need technical support, or want to understand how we can help
-              your business, our team is here to assist you every step of the way.
+              your business &mdash; our team is here to assist you every step of the way.
             </p>
             <div class="hero__actions hero__actions--center" data-reveal style="--delay: 0.24s">
-              <a class="btn" href="#contact-form">Talk With Us</a>
+              <a class="btn" href="#contact-shell">Fill The Form Out!</a>
             </div>
           </div>
-          <article class="surface contact-form-card contact-form-card--hero" data-reveal style="--delay: 0.3s">
-            <form data-demo-form class="contact-form-card__form">
-              <div class="form-grid">
-                <div class="form-field">
-                  <label for="first-name">First name*</label>
-                  <input id="first-name" name="first_name" type="text" placeholder="First Name" required>
+          <div class="contact-form-shell contact-form-shell--live" id="contact-shell">
+            <article class="surface contact-form-card contact-form-card--hero" data-reveal style="--delay: 0.32s">
+              <form data-demo-form class="contact-form-card__form">
+                <div class="form-grid">
+                  <div class="form-field">
+                    <label for="first-name">First name*</label>
+                    <input id="first-name" name="first_name" type="text" placeholder="First Name" required>
+                  </div>
+                  <div class="form-field">
+                    <label for="last-name">Last name</label>
+                    <input id="last-name" name="last_name" type="text" placeholder="Last Name">
+                  </div>
+                  <div class="form-field">
+                    <label for="email">Email*</label>
+                    <input id="email" name="email" type="email" placeholder="Email" required>
+                  </div>
+                  <div class="form-field">
+                    <label for="phone">Phone*</label>
+                    <input id="phone" name="phone" type="tel" placeholder="Phone Number" required>
+                  </div>
+                  <div class="form-field">
+                    <label for="state">State*</label>
+                    <select id="state" name="state" required>
+                      <option value="">Select State</option>
+                      <option>Andhra Pradesh</option>
+                      <option>Arunachal Pradesh</option>
+                      <option>Assam</option>
+                      <option>Bihar</option>
+                      <option>Chhattisgarh</option>
+                      <option>Goa</option>
+                      <option>Gujarat</option>
+                      <option>Haryana</option>
+                      <option>Himachal Pradesh</option>
+                      <option>Jharkhand</option>
+                      <option>Karnataka</option>
+                      <option>Kerala</option>
+                      <option>Madhya Pradesh</option>
+                      <option>Maharashtra</option>
+                      <option>Manipur</option>
+                      <option>Meghalaya</option>
+                      <option>Mizoram</option>
+                      <option>Nagaland</option>
+                      <option>Odisha</option>
+                      <option>Punjab</option>
+                      <option>Rajasthan</option>
+                      <option>Sikkim</option>
+                      <option>Tamil Nadu</option>
+                      <option>Telangana</option>
+                      <option>Tripura</option>
+                      <option>Uttar Pradesh</option>
+                      <option>Uttarakhand</option>
+                      <option>West Bengal</option>
+                      <option>Delhi</option>
+                    </select>
+                  </div>
+                  <div class="form-field">
+                    <label for="place">Place*</label>
+                    <input id="place" name="place" type="text" placeholder="Place" required>
+                  </div>
+                  <div class="form-field form-field--full">
+                    <label for="message">Message*</label>
+                    <textarea id="message" name="message" placeholder="Type your message..." required></textarea>
+                  </div>
                 </div>
-                <div class="form-field">
-                  <label for="last-name">Last name</label>
-                  <input id="last-name" name="last_name" type="text" placeholder="Last Name">
-                </div>
-                <div class="form-field">
-                  <label for="email">Email*</label>
-                  <input id="email" name="email" type="email" placeholder="Email" required>
-                </div>
-                <div class="form-field">
-                  <label for="phone">Phone*</label>
-                  <input id="phone" name="phone" type="tel" placeholder="Phone Number" required>
-                </div>
-                <div class="form-field">
-                  <label for="state">State*</label>
-                  <select id="state" name="state" required>
-                    <option value="">Select State</option>
-                    <option>Kerala</option>
-                    <option>Tamil Nadu</option>
-                    <option>Karnataka</option>
-                    <option>Maharashtra</option>
-                  </select>
-                </div>
-                <div class="form-field">
-                  <label for="place">Place*</label>
-                  <input id="place" name="place" type="text" placeholder="Place" required>
-                </div>
-                <div class="form-field form-field--full">
-                  <label for="message">Message*</label>
-                  <textarea id="message" name="message" placeholder="Type your message..." required></textarea>
-                </div>
+                <button class="btn contact-submit" type="submit">Submit Now</button>
+                <p class="form-feedback" aria-live="polite"></p>
+              </form>
+            </article>
+            <aside class="contact-meta-column" data-reveal style="--delay: 0.36s">
+              <div class="contact-side-stack">
+                <article class="contact-side-card">
+                  <div class="contact-side-card__inner">
+                    <div class="contact-side-card__top">
+                      <div class="contact-side-card__title">
+                        <span class="icon-shell icon-shell--slate" data-ui-icon="mail"></span>
+                        <span class="contact-side-card__label">Email</span>
+                      </div>
+                      <span class="contact-side-card__pill">24/7</span>
+                    </div>
+                    <div class="contact-side-card__divider" aria-hidden="true"></div>
+                    <a class="contact-side-card__value" href="mailto:semicoloninnovation@gmail.com">
+                      semicoloninnovation@gmail.com
+                    </a>
+                  </div>
+                </article>
+                <article class="contact-side-card">
+                  <div class="contact-side-card__inner">
+                    <div class="contact-side-card__top">
+                      <div class="contact-side-card__title">
+                        <span class="icon-shell icon-shell--slate" data-ui-icon="phone"></span>
+                        <span class="contact-side-card__label">Phone</span>
+                      </div>
+                      <span class="contact-side-card__pill">Direct</span>
+                    </div>
+                    <div class="contact-side-card__divider" aria-hidden="true"></div>
+                    <a class="contact-side-card__value" href="tel:+917012217612">+91 7012217612</a>
+                  </div>
+                </article>
+                <article class="contact-side-card">
+                  <div class="contact-side-card__inner">
+                    <div class="contact-side-card__top">
+                      <div class="contact-side-card__title">
+                        <span class="icon-shell icon-shell--slate" data-ui-icon="pin"></span>
+                        <span class="contact-side-card__label">Address</span>
+                      </div>
+                      <span class="contact-side-card__pill">Active</span>
+                    </div>
+                    <div class="contact-side-card__divider" aria-hidden="true"></div>
+                    <p class="contact-side-card__value contact-side-card__value--text">
+                      Kunnath Building , 2nd Floor, Sankara Iyer Road, Westfort, Thrissur-680004
+                    </p>
+                  </div>
+                </article>
               </div>
-              <button class="btn contact-submit" type="submit">Submit Now</button>
-              <p class="form-feedback" aria-live="polite"></p>
-            </form>
-          </article>
+            </aside>
+          </div>
         </div>
       </section>
 

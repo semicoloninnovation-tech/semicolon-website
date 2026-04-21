@@ -48,6 +48,12 @@
       '<svg class="ui-icon__svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 3 10 14"/><path d="m21 3-7 18-4-7-7-4 18-7Z"/></svg>',
     branch:
       '<svg class="ui-icon__svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="7" cy="6" r="2.5"/><circle cx="17" cy="18" r="2.5"/><circle cx="17" cy="6" r="2.5"/><path d="M9.5 6H13a4 4 0 0 1 4 4v5.5"/><path d="M9.5 6v10a4 4 0 0 0 4 4h1"/></svg>',
+    mail:
+      '<svg class="ui-icon__svg" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5.833 7.5 10 10.417 14.166 7.5"/><path d="M1.667 14.167V5.833c0-.92.746-1.666 1.666-1.666h13.333c.921 0 1.667.746 1.667 1.666v8.334c0 .92-.746 1.666-1.667 1.666H3.333c-.92 0-1.666-.746-1.666-1.666Z"/></svg>',
+    phone:
+      '<svg class="ui-icon__svg" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 13.342 10.008 13.332"/><path d="M5.833 16.167V3.833c0-.276.224-.5.5-.5h7.333c.277 0 .5.224.5.5v12.334c0 .276-.223.5-.5.5H6.333c-.276 0-.5-.224-.5-.5Z"/></svg>',
+    pin:
+      '<svg class="ui-icon__svg" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M7.917 12.083 2.5 17.5"/><path d="m4.167 7.904 7.66 7.661 1.415-1.415-.327-3.155 4.591-3.894-4.875-4.875-3.895 4.591-3.155-.327Z"/></svg>',
     plus:
       '<svg class="ui-icon__svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 7v10"/><path d="M7 12h10"/></svg>'
   };
