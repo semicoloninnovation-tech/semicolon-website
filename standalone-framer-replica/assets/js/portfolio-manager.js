@@ -1,65 +1,127 @@
 (function () {
-  const STORAGE_KEY = "semicolon.portfolio.projects.v1";
+  const STORAGE_KEY = "semicolon.portfolio.projects.v5";
 
   const DEFAULT_PROJECTS = [
     {
       id: "telemed-healthcare",
       title: "Telemed Healthcare",
-      client: "Telemed",
-      category: "Healthcare",
+      client: "Telemed Healthcare",
+      category: "Software Application",
       year: "2025",
-      summary: "A connected care platform for virtual appointments, digital patient intake, and doctor coordination.",
+      summary: "Automated invoice generation from healthcare Excel sheets for hospitals and labs.",
       description:
-        "Built as a modern telemedicine experience with patient onboarding, appointment management, doctor dashboards, and secure care follow-up across devices.",
-      tags: ["Telemedicine", "Patient Portal", "Appointments", "Doctor Dashboard"],
+        "A utility web application that processes large healthcare Excel files and auto-generates patient-specific invoices and categorized billing reports.",
+      tags: ["Healthcare", "Invoice Automation", "Excel Processing", "Billing Reports"],
       outcomes: [
-        "Remote booking flow simplified for patients",
-        "Doctor-side scheduling became faster to manage",
-        "Care teams gained a clearer digital follow-up process"
+        "Parses large Excel files within seconds",
+        "Auto-generates GST-ready invoices and department-wise outputs",
+        "Validates file format, column alignment, and empty-cell issues before conversion"
       ],
       ctaLabel: "Discuss Similar Project",
       ctaHref: "contact.html",
       featured: true,
-      tone: "healthcare"
+      tone: "healthcare",
+      image: ""
     },
     {
-      id: "dream-nest-properties",
-      title: "Dream Nest Properties",
-      client: "Dream Nest",
-      category: "Real Estate",
+      id: "ccp",
+      title: "CCP",
+      client: "CCP",
+      category: "Software Application",
       year: "2025",
-      summary: "A polished real estate platform for listings, lead capture, property showcases, and buyer engagement.",
+      summary: "Centralized staff management and ticketing system for internal operations.",
       description:
-        "Designed to help property teams showcase developments, manage inbound leads, and present a premium brand experience across desktop and mobile.",
-      tags: ["Listings", "Lead Generation", "Brochure Pages", "Responsive UI"],
+        "An enterprise-grade staff management platform with complaint and ticket raising, multi-level role permissions, approval workflows, and report generation.",
+      tags: ["Ticketing", "Enterprise", "Permissions", "Reports"],
       outcomes: [
-        "Property discovery became easier to browse",
-        "Sales teams received cleaner qualified inquiries",
-        "The brand gained a more premium digital presentation"
+        "Smooth ticket routing and escalation workflows",
+        "Department-based access with custom role privileges",
+        "Downloadable issue and response-time reports"
       ],
-      ctaLabel: "Start a Real Estate Project",
+      ctaLabel: "Build an Internal Tool",
       ctaHref: "contact.html",
-      image: "assets/media/dream-nest-portfolio.png",
-      tone: "real-estate"
+      image: "assets/media/live-portfolio/portfolio-case-c.png",
+      tone: "default"
     },
     {
-      id: "skill-lift-academy",
-      title: "Skill Lift Academy",
-      client: "Skill Lift",
-      category: "Education",
-      year: "2024",
-      summary: "An education product focused on program discovery, enrollment journeys, and student-first communication.",
+      id: "wellone",
+      title: "WellOne",
+      client: "WellOne",
+      category: "Software Application",
+      year: "2025",
+      summary: "Workflow and task management system for employees, roles, and internal communication.",
       description:
-        "Created to support training operations with clearer program information, stronger conversion paths, and a better learner onboarding experience.",
-      tags: ["EdTech", "Admissions", "Landing Pages", "Student Flow"],
+        "A productivity-focused employee platform for tracking tasks, assigning roles, sending notifications, and improving internal workflow visibility.",
+      tags: ["Workflow", "Employee Management", "Notifications", "Analytics"],
       outcomes: [
-        "Program information became easier to understand",
-        "Enrollment journeys became more structured",
-        "Students received a smoother digital first impression"
+        "Role-based dashboards across desktop, tablet, and mobile",
+        "Email, push, and in-app task notifications",
+        "Clear analytics for completion, overdue work, and time usage"
       ],
-      ctaLabel: "Plan an Education Product",
+      ctaLabel: "Create a Workflow Product",
       ctaHref: "contact.html",
-      tone: "education"
+      image: "assets/media/live-portfolio/portfolio-case-a.png",
+      tone: "default"
+    },
+    {
+      id: "moca",
+      title: "MOCA",
+      client: "MOCA",
+      category: "Web Application",
+      year: "2025",
+      summary: "Digital lending platform helping MSMEs access working capital through leading institutions.",
+      description:
+        "A FinTech solution that supports quick and reliable credit access for MSMEs with responsive flows, SEO-focused structure, and faster eligibility checks.",
+      tags: ["MSME Lending", "FinTech", "Working Capital", "SEO"],
+      outcomes: [
+        "Real-time application processing and approval flow",
+        "Optimized APIs for faster eligibility checks",
+        "Improved communication and deployment for smoother launches"
+      ],
+      ctaLabel: "Launch a Lending Platform",
+      ctaHref: "contact.html",
+      image: "assets/media/live-portfolio/portfolio-case-b.png",
+      tone: "fintech"
+    },
+    {
+      id: "deltachase",
+      title: "Deltachase",
+      client: "Deltachase",
+      category: "Web Application",
+      year: "2025",
+      summary: "Quick and flexible short-term loans platform built for a streamlined digital borrowing flow.",
+      description:
+        "A loan facilitation platform offering flexible short-term loans from trusted NBFCs and banks with seamless lender integration and financial data accuracy.",
+      tags: ["FinTech", "Loans", "NBFC", "Risk Management"],
+      outcomes: [
+        "Instant eligibility checks through optimized backend logic",
+        "Built-in KYC, PAN, and Aadhaar validation APIs",
+        "Minimal load times using dynamic content caching"
+      ],
+      ctaLabel: "Build a FinTech Product",
+      ctaHref: "contact.html",
+      image: "assets/media/live-portfolio/portfolio-case-c.png",
+      tone: "fintech"
+    },
+    {
+      id: "realton-it",
+      title: "Realton IT",
+      client: "Realton IT",
+      category: "Software Application",
+      year: "2025",
+      summary: "Robust B2B eCommerce software for IT hardware distribution and inventory control.",
+      description:
+        "A custom B2B commerce system designed to manage IT peripherals, supplier coordination, pricing models, and real-time inventory across customer groups.",
+      tags: ["B2B Commerce", "Inventory", "Vendors", "Invoicing"],
+      outcomes: [
+        "Thousands of product SKUs and pricing rules handled cleanly",
+        "Real-time inventory sync across brands and vendors",
+        "Order tracking and GST-compliant PDFs automated"
+      ],
+      ctaLabel: "Start an eCommerce Build",
+      ctaHref: "contact.html",
+      image: "assets/media/live-portfolio/portfolio-case-c.png",
+      tone: "commerce"
     }
   ];
 
@@ -221,7 +283,7 @@
   function renderMedia(project, featured) {
     const toneClass = `project-cover--${project.tone || "default"}`;
     const featuredClass = featured ? " project-cover--featured" : "";
-    const label = featured ? "Featured Project" : project.category;
+    const label = project.category;
 
     if (project.image) {
       return `
@@ -250,13 +312,12 @@
     return items.map((item) => `<li>${escapeHtml(item)}</li>`).join("");
   }
 
-  function renderFeaturedProject(project) {
-    const mount = document.querySelector("[data-portfolio-featured]");
-    if (!mount || !project) return;
+  function renderProjectShowcaseCard(project, compact) {
+    const compactClass = compact ? " project-browser--compact" : "";
 
-    const visual = project.image
-      ? `
-        <div class="project-browser project-browser--image">
+    if (project.image) {
+      return `
+        <div class="project-browser project-browser--image${compactClass}">
           <div class="project-browser__screen project-browser__screen--image">
             <img src="${escapeHtml(project.image)}" alt="${escapeHtml(project.title)} showcase">
           </div>
@@ -265,39 +326,44 @@
             <span class="project-browser__year">${escapeHtml(project.year)}</span>
           </div>
         </div>
-      `
-      : `
-        <div class="project-browser">
-          <div class="project-browser__screen">
-            <div class="project-browser__pulse"></div>
-            <div class="project-browser__doctor"></div>
-            <div class="project-browser__laptop"></div>
-          </div>
-          <div class="project-browser__footer">
-            <strong>${escapeHtml(project.title)}</strong>
-            <span class="project-browser__year">${escapeHtml(project.year)}</span>
-          </div>
-        </div>
       `;
+    }
+
+    return `
+      <div class="project-browser${compactClass}">
+        <div class="project-browser__screen">
+          <div class="project-browser__pulse"></div>
+          <div class="project-browser__doctor"></div>
+          <div class="project-browser__laptop"></div>
+        </div>
+        <div class="project-browser__footer">
+          <strong>${escapeHtml(project.title)}</strong>
+          <span class="project-browser__year">${escapeHtml(project.year)}</span>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderFeaturedProject(project) {
+    const mount = document.querySelector("[data-portfolio-featured]");
+    if (!mount || !project) return;
 
     mount.innerHTML = `
       <article class="surface portfolio-stage__card portfolio-stage__card--dynamic">
         <div class="portfolio-stage__showcase">
-          ${visual}
+          ${renderProjectShowcaseCard(project, false)}
         </div>
       </article>
     `;
   }
 
-  function renderProjectGrid(projects, activeFilter) {
+  function renderProjectGrid(projects) {
     const grid = document.querySelector("[data-portfolio-grid]");
     const empty = document.querySelector("[data-portfolio-empty]");
     if (!grid) return;
 
-    const visibleProjects =
-      activeFilter === "all"
-        ? projects
-        : projects.filter((project) => project.categoryKey === activeFilter);
+    const hasFeaturedShowcase = Boolean(document.querySelector("[data-portfolio-featured]"));
+    const visibleProjects = hasFeaturedShowcase ? projects.filter((project) => !project.featured) : projects;
 
     if (!visibleProjects.length) {
       grid.innerHTML = "";
@@ -310,29 +376,9 @@
     grid.innerHTML = visibleProjects
       .map(
         (project) => `
-          <article class="surface dynamic-project-card" data-category="${escapeHtml(project.categoryKey)}">
-            <div class="dynamic-project-card__media">
-              ${renderMedia(project, false)}
-            </div>
-            <div class="dynamic-project-card__body">
-              <div class="dynamic-project-card__head">
-                <div>
-                  <span class="dynamic-project-card__eyebrow">${escapeHtml(project.category)} | ${escapeHtml(project.year)}</span>
-                  <strong>${escapeHtml(project.title)}</strong>
-                </div>
-                ${project.featured ? '<span class="chip">Featured</span>' : ""}
-              </div>
-              <p>${escapeHtml(project.summary)}</p>
-              <ul class="project-outcome-list project-outcome-list--compact">
-                ${renderOutcomeList(project.outcomes.slice(0, 3))}
-              </ul>
-              <div class="tag-row">
-                ${renderTagRow(project.tags)}
-              </div>
-              <div class="dynamic-project-card__footer">
-                <span class="dynamic-project-card__client">${escapeHtml(project.client)}</span>
-                <a class="btn btn--small" href="${escapeHtml(project.ctaHref)}">${escapeHtml(project.ctaLabel)}</a>
-              </div>
+          <article class="portfolio-case-tile" data-category="${escapeHtml(project.categoryKey)}">
+            <div class="surface portfolio-case-tile__shell">
+              ${renderProjectShowcaseCard(project, true)}
             </div>
           </article>
         `
@@ -371,24 +417,9 @@
   function initPortfolioPage() {
     const projects = readProjects();
     const featured = projects.find((project) => project.featured) || projects[0];
-    let activeFilter = "all";
 
     renderFeaturedProject(featured);
-    renderFilters(projects, activeFilter);
-    renderProjectGrid(projects, activeFilter);
-
-    const filtersMount = document.querySelector("[data-portfolio-filters]");
-    if (!filtersMount || filtersMount.dataset.bound === "true") return;
-
-    filtersMount.dataset.bound = "true";
-    filtersMount.addEventListener("click", (event) => {
-      const button = event.target.closest("[data-portfolio-filter]");
-      if (!button) return;
-
-      activeFilter = button.dataset.portfolioFilter || "all";
-      renderFilters(readProjects(), activeFilter);
-      renderProjectGrid(readProjects(), activeFilter);
-    });
+    renderProjectGrid(projects);
   }
 
   function createStatMarkup(label, value) {

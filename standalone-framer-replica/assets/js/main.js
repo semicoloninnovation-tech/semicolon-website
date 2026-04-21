@@ -15,6 +15,43 @@
     return (header?.offsetHeight || 72) + 18;
   };
 
+  const ICONS = {
+    software:
+      '<svg class="ui-icon__svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3 4 7l8 4 8-4-8-4Z"/><path d="m4 12 8 4 8-4"/><path d="m4 17 8 4 8-4"/></svg>',
+    training:
+      '<svg class="ui-icon__svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m2 8 10-5 10 5-10 5-10-5Z"/><path d="M6 10v4c0 1.9 2.7 3.5 6 3.5s6-1.6 6-3.5v-4"/><path d="M22 8v6"/></svg>',
+    consulting:
+      '<svg class="ui-icon__svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="m14.8 9.2-2.2 5.6-5.4 2.2 2.2-5.6 5.4-2.2Z"/></svg>',
+    delivery:
+      '<svg class="ui-icon__svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4" width="7" height="5.5" rx="1.4"/><rect x="14" y="4" width="7" height="5.5" rx="1.4"/><rect x="8.5" y="14.5" width="7" height="5.5" rx="1.4"/><path d="M6.5 9.5v2a2 2 0 0 0 2 2H12"/><path d="M17.5 9.5v2a2 2 0 0 1-2 2H12"/></svg>',
+    support:
+      '<svg class="ui-icon__svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3 5 6v5c0 5 3 8.5 7 10 4-1.5 7-5 7-10V6l-7-3Z"/><path d="m9.5 12 1.8 1.8 3.8-3.8"/></svg>',
+    career:
+      '<svg class="ui-icon__svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8.5" r="4.5"/><path d="m9 13-1 7 4-2 4 2-1-7"/><path d="m10.2 8.7 1.8-1.4 1.8 1.4-.7-2.1 1.8-1.3h-2.2L12 3.2l-.7 2.1H9.1l1.8 1.3-.7 2.1Z"/></svg>',
+    mobile:
+      '<svg class="ui-icon__svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M10 5.5h4"/><path d="M11 18.5h2"/></svg>',
+    web:
+      '<svg class="ui-icon__svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18"/><path d="m10 11-2.5 2.5L10 16"/><path d="m14 11 2.5 2.5L14 16"/></svg>',
+    design:
+      '<svg class="ui-icon__svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m12 3 1.6 3.7L17 8.3l-3.4 1.6L12 13.6l-1.6-3.7L7 8.3l3.4-1.6L12 3Z"/><path d="m18.5 13.5.9 2.2 2.1.9-2.1.9-.9 2.2-.9-2.2-2.1-.9 2.1-.9.9-2.2Z"/><path d="m6.5 14.5.7 1.7 1.6.7-1.6.7-.7 1.7-.7-1.7-1.6-.7 1.6-.7.7-1.7Z"/></svg>',
+    qa:
+      '<svg class="ui-icon__svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 4h6"/><path d="M10 7V4"/><path d="M14 7V4"/><rect x="7" y="7" width="10" height="11" rx="5"/><path d="m8.5 10-2-1.8"/><path d="m15.5 10 2-1.8"/><path d="m8.5 14-2 1.8"/><path d="m15.5 14 2 1.8"/><path d="m10 13 1.4 1.4L15 11"/></svg>',
+    code:
+      '<svg class="ui-icon__svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 8-4 4 4 4"/><path d="m15 8 4 4-4 4"/><path d="m13.5 5-3 14"/></svg>',
+    messages:
+      '<svg class="ui-icon__svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 6.5h10a3 3 0 0 1 3 3v4a3 3 0 0 1-3 3H9l-4 3v-3.2a3 3 0 0 1-3-2.8V9.5a3 3 0 0 1 3-3Z"/><path d="M7.5 10.5h7"/><path d="M7.5 13.5h4.5"/></svg>',
+    cloud:
+      '<svg class="ui-icon__svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8.5 18.5h8.8a4.2 4.2 0 0 0 .5-8.4A6 6 0 0 0 6 11a4 4 0 0 0 2.5 7.5Z"/><path d="m12 10.5 2.5 2.5"/><path d="M12 10.5 9.5 13"/><path d="M12 10.5v6"/></svg>',
+    figma:
+      '<svg class="ui-icon__svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M10 4.5h4a2.5 2.5 0 1 1 0 5h-4Z"/><path d="M10 9.5h4a2.5 2.5 0 1 1 0 5h-4Z"/><path d="M10 14.5h2a2.5 2.5 0 1 1-2.5 2.5v-2.5c0-1.4 1.1-2.5 2.5-2.5Z"/><path d="M10 4.5a2.5 2.5 0 0 0-2.5 2.5v0A2.5 2.5 0 0 0 10 9.5"/><path d="M10 9.5A2.5 2.5 0 0 0 7.5 12v0A2.5 2.5 0 0 0 10 14.5"/></svg>',
+    send:
+      '<svg class="ui-icon__svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 3 10 14"/><path d="m21 3-7 18-4-7-7-4 18-7Z"/></svg>',
+    branch:
+      '<svg class="ui-icon__svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="7" cy="6" r="2.5"/><circle cx="17" cy="18" r="2.5"/><circle cx="17" cy="6" r="2.5"/><path d="M9.5 6H13a4 4 0 0 1 4 4v5.5"/><path d="M9.5 6v10a4 4 0 0 0 4 4h1"/></svg>',
+    plus:
+      '<svg class="ui-icon__svg" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 7v10"/><path d="M7 12h10"/></svg>'
+  };
+
   const internalHref = (href) =>
     href &&
     !href.startsWith("http") &&
@@ -223,6 +260,19 @@
     counters.forEach((counter) => counterObserver.observe(counter));
   };
 
+  const initIcons = () => {
+    document.querySelectorAll("[data-ui-icon]").forEach((node) => {
+      const icon = ICONS[node.dataset.uiIcon];
+      if (!icon) return;
+      node.innerHTML = icon;
+    });
+
+    document.querySelectorAll(".faq-item__icon").forEach((node) => {
+      node.innerHTML = ICONS.plus;
+      node.setAttribute("aria-hidden", "true");
+    });
+  };
+
   const initFaq = () => {
     document.querySelectorAll("[data-faq-button]").forEach((button) => {
       button.addEventListener("click", () => {
@@ -409,6 +459,7 @@
   renderFooter();
   updateNavActiveState();
   initMobileNav();
+  initIcons();
   initReveal();
   initCounters();
   initFaq();
